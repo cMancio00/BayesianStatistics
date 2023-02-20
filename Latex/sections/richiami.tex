@@ -1,0 +1,34 @@
+\documentclass[../main.tex]{subfiles}
+
+\begin{document}
+
+\section{Richiami di statistica}
+\begin{definition}[Partizione di un insieme]
+    Una partizione dell'insieme $H$ è una famiglia di sottoinsiemi $\{ H_{1},H_{2},\cdots H_{k}\}$ che soddisfa le seguenti proprietà:
+    \begin{enumerate}
+        \item $H_{i}\cap H_{j}=\emptyset$ per ogni $i\neq j$;
+        \item $\bigcup_{i=1}^{k}H_{i}=H$.
+    \end{enumerate}
+\end{definition}
+In altre parole abbiamo detto che:
+\begin{itemize}
+    \item La famiglia $\{ H_{1},H_{2},\cdots H_{k}\}$ è detta \textbf{disgiunta} se $H_{i}\cap H_{j}=\emptyset$ per ogni $i\neq j$.
+    \item La famiglia $\{ H_{1},H_{2},\cdots H_{k}\}$ è detta \textbf{completa} se $\bigcup_{i=1}^{k}H_{i}=H$.
+    \item La famiglia $\{ H_{1},H_{2},\cdots H_{k}\}$ è detta \textbf{partizione di H} se è disgiunta e completa. 
+\end{itemize}
+Sia $\{ H_{1},H_{2},\cdots H_{k}\}$ un partizione di $H$,$P(H)=1$ e sia $E$ un evento specifico. Allora gli assiomi di probabilità ci dicono che:
+\begin{itemize}
+    \item \begin{equation}\label{eq:prob tot}
+        \sum_{i=1}^{k}P(H_{i})=1.
+    \end{equation}
+    \item \begin{equation}\label{eq:prob marg}
+        P(E)=\sum_{i=1}^{k}P(E\cap H_{i})=\sum_{i=1}^{k}P(E|H_{i})P(H_{i}).
+    \end{equation}
+\end{itemize}
+Dove \ref{eq:prob tot} è detta \textbf{Regola di probabilità totale} e \ref{eq:prob marg} è detta \textbf{Regola di probabilità marginale}.
+\begin{definition}[Formula di Bayes]
+\begin{equation}
+    P(H_{j}|E)=\frac{P(E|H_{j})P(H_{j})}{P(E)}\stackrel{\ref{eq:prob marg}}{=}\frac{P(E|H_{j})P(H_{j})}{\sum_{i=1}^{k}P(E|H_{i})P(H_{i})}.
+\end{equation}
+\end{definition}
+\end{document}

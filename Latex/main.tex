@@ -1,16 +1,23 @@
-\documentclass[]{article}
+\documentclass[12pt]{article}
 %opening
 \title{Statistica Bayesiana}
 \author{Christian Mancini}
+\date{\today}
+\usepackage[italian]{babel}
+\usepackage{amsthm}
+\usepackage{hyperref}
+\usepackage{subfiles}
 
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[section]
+
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
 \begin{document}
 
 \maketitle
+\tableofcontents
 
-\begin{abstract}
-
-\end{abstract}
-
-\section{}
+\subfile{sections/richiami.tex}
 
 \end{document}
