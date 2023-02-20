@@ -1,0 +1,4 @@
+Latex/*.aux
+Latex/*.log
+Latex/*.pdf
+Latex/*.synctex.gz
