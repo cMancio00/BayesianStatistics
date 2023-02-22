@@ -30,7 +30,7 @@ La distribuzione finale di probabilità può a sua volta diventare una probabili
 \section{Funzioni belief e probabilità}
 La probabilità è un modo per esprimere numericamente un'aspettativa razionale.
 Mostriamo adesso che molte proprietà che hanno le nostre aspettative numeriche sono anche valide per le probabilità.
-\subsection{Funzione belief (\textit{belief function})}
+\subsection{Funzione belief (belief function)}
 \begin{definition}[Funzione belief]
     \label{def:funzione_belief}
     La funzione belief è una funzione che associa ad ogni possibile evento o enunciato un valore reale compreso tra 0 e 1.
@@ -45,6 +45,43 @@ Vogliamo che la funzione descriva le nostre credenze sotto certe condizioni:
     \item $Be(F|G) > Be(F|H)$ significa che se siamo costretti a scommettere su $F$, lo facciamo più volentieri sotto la condizione che $G$ sia vero rispetto alla condizione che $H$ sia vero.
 \end{itemize}
 
+\subsection{Assiomi di credibilità}
+Ogni funzione che rappresenta le nostre credenze deve avere le seguenti proprietà:
+\begin{equation}
+    \label{eq:B1}
+    Be(\lnot H|H) \leq Be(F|H) \leq Be(H|H)
+\end{equation}
+\begin{equation}
+    \label{eq:B2}
+    Be(F\cup G|H) \geq \max \{ Be(F|H),Be(G|H)\} 
+\end{equation}
+\begin{equation}
+    \label{eq:B3}
+    Be(F \cap G|H) \;\textit{può essere derivata da}\;  Be(G|H) \;\textit{e}\; Be(F|G \cap H)
+\end{equation}
+\hfill \break
+Addesso vediamo cosa significano le proprietà sopra elencate.
+\begin{itemize}
+    \item \textbf{Proprietà \ref{eq:B1}}: Il numero che assegno a $Be(F|H)$ è compreso tra i numeri che assegnamo all'assenza di credenza e alla piena credenza.
+    \item \textbf{Proprietà \ref{eq:B2}}: La credibilità di $F$ o $G$ dato $H$ è almeno uguale alla credibilità di $F$ o $G$.
+    \item \textbf{Proprietà \ref{eq:B3}}: Possiamo decidere se $F$ e $G$ sono entrambi credibili dato $H$, prima decidendo se $G$ è credibile dato $H$ e successivamente decidendo se $F$ è credibile dato $G$ e $H$.
+\end{itemize}
+\hfill \break
+Possiamo confrontare gli assiomi di credibilità con gli assiomi di probabilità:
+\begin{equation}
+    \label{eq:P1}
+    0=P(\lnot H|H) \leq P(F|H) \leq P(H|H)=1
+\end{equation}
+\begin{equation}
+    \label{eq:P2}
+    P(F\cup G|H) = P(F|H)+P(G|H) \;\textit{se}\; F \cap G = \emptyset
+\end{equation}
+\begin{equation}
+    \label{eq:P3}
+    P(F \cap G|H) = P(G|H)P(F|G \cap H)
+\end{equation}
+\hfill \break
+Notiamo che una funzione che soddisfa gli assiomi di credibilità soddisfa anche gli assiomi di probabilità. Quindi se usiamo una funzione di probabilità per descrivere le nostre credenze, allora la funzione soddisfa gli assiomi di credibilità.
 
 \begin{comment}
 \section{Richiami di statistica}
