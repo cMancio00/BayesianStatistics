@@ -7,6 +7,7 @@
 La statistica bayesiana è un sottocampo della statistica in cui la verità di un enunciato è espressa in termini di credibilià (\textit{beliefe})
 o più specificatamente di \textbf{probabilità bayesiana}.
 \begin{definition}[Probabilità bayesiana]
+    \label{def:probabilità_bayesiana}
     La probabilità bayesiana è un'interpretazione del concetto di probabilità, in cui, anzichè la frequenza di un qualche evento, la probabilità
     viene vista come aspettativa razionale che rappresenta un stato di conoscenza o come quantificazione di una convinzione personale.
 \end{definition}
@@ -26,6 +27,24 @@ Queste procedure sono chiamate \textbf{metodologia bayesiana} e sono le seguenti
     \item La probabilità che può essere assegnata ad un evento è un numero reale compreso tra 0 e 1.
 \end{itemize}
 La distribuzione finale di probabilità può a sua volta diventare una probabilità iniziale che può essere aggiornata con nuovi dati.
+\section{Funzioni belief e probabilità}
+La probabilità è un modo per esprimere numericamente un'aspettativa razionale.
+Mostriamo adesso che molte proprietà che hanno le nostre aspettative numeriche sono anche valide per le probabilità.
+\subsection{Funzione belief (\textit{belief function})}
+\begin{definition}[Funzione belief]
+    \label{def:funzione_belief}
+    La funzione belief è una funzione che associa ad ogni possibile evento o enunciato un valore reale compreso tra 0 e 1.
+\end{definition}
+\hfill \break
+Siano $F$, $G$ e $H$ tre possibili enunciati che possono sovrapporsi.
+Sia $Be()$ una funzione belief che assegna un numero agli enunciati tale che maggiore è il numero assegnato, maggiore è la credibilità dell'enunciato (\textit{degree of belief}).
+Ad esempio, se $Be(F) > Be(G)$ allora $F$ è più credibile di $G$.\\
+Vogliamo che la funzione descriva le nostre credenze sotto certe condizioni:
+\begin{itemize}
+    \item $Be(F|H) > Be(G|H)$ significa che dato $H$ vero, allora è più credibile $F$ che $G$.
+    \item $Be(F|G) > Be(F|H)$ significa che se siamo costretti a scommettere su $F$, lo facciamo più volentieri sotto la condizione che $G$ sia vero rispetto alla condizione che $H$ sia vero.
+\end{itemize}
+
 
 \begin{comment}
 \section{Richiami di statistica}
