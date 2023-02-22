@@ -1,0 +1,61 @@
+\documentclass[../main.tex]{subfiles}
+
+\begin{document}
+\chapter{Concetti preliminari}
+\epigraph{Sotto il teorema di Bayes, nessuna teoria è perfetta. Piuttosto, è un lavoro in corso, sempre soggetto a ulteriori perfezionamenti e prove.}{\textit{Nate Silver}}
+\hfill \break
+La statistica bayesiana è un sottocampo della statistica in cui la verità di un enunciato è espressa in termini di credibilià (\textit{beliefe})
+o più specificatamente di \textbf{probabilità bayesiana}.
+\begin{definition}[Probabilità bayesiana]
+    La probabilità bayesiana è un'interpretazione del concetto di probabilità, in cui, anzichè la frequenza di un qualche evento, la probabilità
+    viene vista come aspettativa razionale che rappresenta un stato di conoscenza o come quantificazione di una convinzione personale.
+\end{definition}
+\hfill \break
+Nella visione bayesiana assegnamo una probabilità ad un'ipotesi, che è la probabilità che l'ipotesi sia vera.
+Nell' approccio frequentista invece, l'ipotesi viene solo verificata senza che le venga assegnata una probabilità.
+Per valutare la probabilità di un'ipotesi si deve fornire una \textbf{probabilità iniziale}(\textit{probabilità a priori}).
+Questa a sua volta viene aggiornata con l'arrivo di nuovi dati, che vengono utilizzati per calcolare la \textbf{probabilità aggiornata}(\textit{probabilità a posteriori}).
+
+\section{Metodologia bayesiana}
+L'interpretazione bayesiana fornisce un insieme standard di procedure e formule per aggiornare la probabilità iniziale con l'arrivo di nuovi dati.
+Queste procedure sono chiamate \textbf{metodologia bayesiana} e sono le seguenti:
+\begin{itemize}
+    \item Uso di variabili casuali, per modellare le fonti di incertezza nei modelli statistici, compresa l'incertezza risultante dalla mancanza di informazioni.
+    \item La necessità di determinare la distribuzione di probabilità iniziale, tenendo conto delle informazioni disponibili.
+    \item Uso ricorsivo del \textbf{teorema di Bayes} per aggiornare la probabilità iniziale con l'arrivo di nuovi dati.
+    \item La probabilità che può essere assegnata ad un evento è un numero reale compreso tra 0 e 1.
+\end{itemize}
+La distribuzione finale di probabilità può a sua volta diventare una probabilità iniziale che può essere aggiornata con nuovi dati.
+
+\begin{comment}
+\section{Richiami di statistica}
+\begin{definition}[Partizione di un insieme]
+    Una partizione dell'insieme $H$ è una famiglia di sottoinsiemi $\{ H_{1},H_{2},\cdots H_{k}\}$ che soddisfa le seguenti proprietà:
+    \begin{enumerate}
+        \item $H_{i}\cap H_{j}=\emptyset$ per ogni $i\neq j$;
+        \item $\bigcup_{i=1}^{k}H_{i}=H$.
+    \end{enumerate}
+\end{definition}
+In altre parole abbiamo detto che:
+\begin{itemize}
+    \item La famiglia $\{ H_{1},H_{2},\cdots H_{k}\}$ è detta \textbf{disgiunta} se $H_{i}\cap H_{j}=\emptyset$ per ogni $i\neq j$.
+    \item La famiglia $\{ H_{1},H_{2},\cdots H_{k}\}$ è detta \textbf{completa} se $\bigcup_{i=1}^{k}H_{i}=H$.
+    \item La famiglia $\{ H_{1},H_{2},\cdots H_{k}\}$ è detta \textbf{partizione di H} se è disgiunta e completa. 
+\end{itemize}
+Sia $\{ H_{1},H_{2},\cdots H_{k}\}$ un partizione di $H$,$P(H)=1$ e sia $E$ un evento specifico. Allora gli assiomi di probabilità ci dicono che:
+\begin{itemize}
+    \item \begin{equation}\label{eq:prob tot}
+        \sum_{i=1}^{k}P(H_{i})=1.
+    \end{equation}
+    \item \begin{equation}\label{eq:prob marg}
+        P(E)=\sum_{i=1}^{k}P(E\cap H_{i})=\sum_{i=1}^{k}P(E|H_{i})P(H_{i}).
+    \end{equation}
+\end{itemize}
+Dove \ref{eq:prob tot} è detta \textbf{Regola di probabilità totale} e \ref{eq:prob marg} è detta \textbf{Regola di probabilità marginale}.
+\begin{definition}[Formula di Bayes]
+\begin{equation}
+    P(H_{j}|E)=\frac{P(E|H_{j})P(H_{j})}{P(E)}\stackrel{\ref{eq:prob marg}}{=}\frac{P(E|H_{j})P(H_{j})}{\sum_{i=1}^{k}P(E|H_{i})P(H_{i})}.
+\end{equation}
+\end{definition}
+\end{comment}
+\end{document}
