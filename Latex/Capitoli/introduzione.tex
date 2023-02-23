@@ -45,7 +45,7 @@ Vogliamo che la funzione descriva le nostre credenze sotto certe condizioni:
     \item $Be(F|G) > Be(F|H)$ significa che se siamo costretti a scommettere su $F$, lo facciamo più volentieri sotto la condizione che $G$ sia vero rispetto alla condizione che $H$ sia vero.
 \end{itemize}
 
-\subsection{Assiomi di credibilità}
+\subsection{Assiomi di credibilità}\label{sub:assiomi_credibilita}
 Ogni funzione che rappresenta le nostre credenze deve avere le seguenti proprietà:
 \begin{equation}
     \label{eq:B1}
@@ -98,25 +98,46 @@ Notiamo che una funzione che soddisfa gli assiomi di credibilità soddisfa anche
 \end{definition}
 \hfill \break
 La famiglia $\{ H_{1},H_{2},\cdots H_{k}\}$ è detta \textbf{disgiunta} se vale la proprietà \ref{eq:disgiunta}, mentre è detta \textbf{completa} se vale la proprietà \ref{eq:completa}.
-Possiamo dire che $\{ H_{1},H_{2},\cdots H_{k}\}$ è una \textbf{partizione di H} se è disgiunta e completa. 
-
-\begin{comment}
-\section{Richiami di statistica}
-
-Sia $\{ H_{1},H_{2},\cdots H_{k}\}$ un partizione di $H$,$P(H)=1$ e sia $E$ un evento specifico. Allora gli assiomi di probabilità ci dicono che:
-\begin{itemize}
-    \item \begin{equation}\label{eq:prob tot}
-        \sum_{i=1}^{k}P(H_{i})=1.
-    \end{equation}
-    \item \begin{equation}\label{eq:prob marg}
-        P(E)=\sum_{i=1}^{k}P(E\cap H_{i})=\sum_{i=1}^{k}P(E|H_{i})P(H_{i}).
-    \end{equation}
-\end{itemize}
+Possiamo dire che $\{ H_{1},H_{2},\cdots H_{k}\}$ è una \textbf{partizione di H} se è disgiunta e completa.
+\hfill \break
+Prima di introdurre la regola di Bayes, vediamo due proprietà che derivano direttamente dagli assiomi di credibilità visti nella sezione \ref*{sub:assiomi_credibilita}.
+\break
+\begin{lemma}
+    \label{lem:prob marg}
+    Sia $\{ H_{1},H_{2},\cdots H_{k}\}$ un partizione di $H$, $P(H)=1$ e sia $E$ un evento specifico. Allora gli assiomi di probabilità ci dicono che:
+        \begin{equation}\label{eq:prob tot}
+            \sum_{i=1}^{k}P(H_{i})=1.
+        \end{equation}
+        \begin{equation}\label{eq:prob marg}
+            P(E)=\sum_{i=1}^{k}P(E\cap H_{i})=\sum_{i=1}^{k}P(E|H_{i})P(H_{i}).
+        \end{equation}
 Dove \ref{eq:prob tot} è detta \textbf{Regola di probabilità totale} e \ref{eq:prob marg} è detta \textbf{Regola di probabilità marginale}.
-\begin{definition}[Formula di Bayes]
-\begin{equation}
+\end{lemma}
+\begin{theorem}[Teorema di Bayes]\label{th:teorema_bayes}
+    Sia $\{ H_{1},H_{2},\cdots H_{k}\}$ un partizione di $H$ e sia $E \subset H \; \mid \; P(E)\ne 0$. Il teorema afferma che:
+\begin{equation}\label{eq:regola_bayes}
     P(H_{j}|E)=\frac{P(E|H_{j})P(H_{j})}{P(E)}\stackrel{\ref{eq:prob marg}}{=}\frac{P(E|H_{j})P(H_{j})}{\sum_{i=1}^{k}P(E|H_{i})P(H_{i})}.
 \end{equation}
-\end{definition}
-\end{comment}
+\end{theorem}
+\hfill \break
+L'evento $E$ implica che si è avverata almeno un'alternativa e quindi $P(E)\ne 0$. Cosa importante, altrimenti il teorema non avrebbe senso, perchè non possiamo dividere per zero.
+\begin{proof}
+Il teorema deriva dalla definizione di probabilità condizionata e dalla regola di probabilità totale.
+La probabilità di un evento $A$ dato un evento $B$ è definita come:
+\begin{equation}\label{eq:condizionata}
+    P(A|B)=\frac{P(A\cap B)}{P(B)}.
+\end{equation}
+Analogamente, la probabilità di un evento $B$ dato un evento $A$ è definita come:
+\begin{equation}
+    P(B|A)=\frac{P(A\cap B)}{P(A)}.
+\end{equation}
+Usando la regola di probabilità marginale \ref{eq:prob marg} possiamo scrivere la probabilità congiunta come:
+\begin{equation}\label{eq:congiunta}
+    P(A \cap B )= P(B|A)P(A).
+\end{equation}
+Sostituendo la \ref{eq:congiunta} in \ref{eq:condizionata} troviamo il terorema di bayes:
+\begin{equation}
+    P(A|B)= \frac{P(A \cap B)}{P(B)} =\frac{P(B|A)P(A)}{P(B)}.
+\end{equation}
+\end{proof}
 \end{document}
