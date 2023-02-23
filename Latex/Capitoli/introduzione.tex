@@ -82,22 +82,27 @@ Possiamo confrontare gli assiomi di credibilità con gli assiomi di probabilità
 \end{equation}
 \hfill \break
 Notiamo che una funzione che soddisfa gli assiomi di credibilità soddisfa anche gli assiomi di probabilità. Quindi se usiamo una funzione di probabilità per descrivere le nostre credenze, allora la funzione soddisfa gli assiomi di credibilità.
-
-\begin{comment}
-\section{Richiami di statistica}
+\section{Partizioni e regola di Bayes}
 \begin{definition}[Partizione di un insieme]
     Una partizione dell'insieme $H$ è una famiglia di sottoinsiemi $\{ H_{1},H_{2},\cdots H_{k}\}$ che soddisfa le seguenti proprietà:
     \begin{enumerate}
-        \item $H_{i}\cap H_{j}=\emptyset$ per ogni $i\neq j$;
-        \item $\bigcup_{i=1}^{k}H_{i}=H$.
+        \item \begin{equation}
+            \label{eq:disgiunta}
+             H_{i}\cap H_{j}=\emptyset \; \forall  i\neq j
+        \end{equation}
+        \item \begin{equation}
+            \label{eq:completa}
+            \bigcup_{i=1}^{k}H_{i}=H
+        \end{equation}
     \end{enumerate}
 \end{definition}
-In altre parole abbiamo detto che:
-\begin{itemize}
-    \item La famiglia $\{ H_{1},H_{2},\cdots H_{k}\}$ è detta \textbf{disgiunta} se $H_{i}\cap H_{j}=\emptyset$ per ogni $i\neq j$.
-    \item La famiglia $\{ H_{1},H_{2},\cdots H_{k}\}$ è detta \textbf{completa} se $\bigcup_{i=1}^{k}H_{i}=H$.
-    \item La famiglia $\{ H_{1},H_{2},\cdots H_{k}\}$ è detta \textbf{partizione di H} se è disgiunta e completa. 
-\end{itemize}
+\hfill \break
+La famiglia $\{ H_{1},H_{2},\cdots H_{k}\}$ è detta \textbf{disgiunta} se vale la proprietà \ref{eq:disgiunta}, mentre è detta \textbf{completa} se vale la proprietà \ref{eq:completa}.
+Possiamo dire che $\{ H_{1},H_{2},\cdots H_{k}\}$ è una \textbf{partizione di H} se è disgiunta e completa. 
+
+\begin{comment}
+\section{Richiami di statistica}
+
 Sia $\{ H_{1},H_{2},\cdots H_{k}\}$ un partizione di $H$,$P(H)=1$ e sia $E$ un evento specifico. Allora gli assiomi di probabilità ci dicono che:
 \begin{itemize}
     \item \begin{equation}\label{eq:prob tot}
