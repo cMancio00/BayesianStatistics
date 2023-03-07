@@ -5,7 +5,7 @@
 \section{Funzioni belief e probabilità}
 La probabilità è un modo per esprimere numericamente un'aspettativa razionale.
 Mostriamo adesso che molte proprietà che hanno le nostre aspettative numeriche sono anche valide per le probabilità.
-\subsection{Funzione belief (belief function)}
+
 \begin{definition}[Funzione belief]
     \label{def:funzione_belief}
     La funzione belief è una funzione che associa ad ogni possibile evento o enunciato un valore reale compreso tra 0 e 1.
@@ -80,13 +80,14 @@ Prima di introdurre la regola di Bayes, vediamo due proprietà che derivano dire
 \begin{lemma}
     \label{lem:prob marg}
     Sia $\{ H_{1},H_{2},\cdots H_{k}\}$ un partizione di $H$, $P(H)=1$ e sia $E$ un evento specifico. Allora gli assiomi di probabilità ci dicono che:
-        \begin{equation}\label{eq:prob tot}
+    \begin{description}
+        \item[Regola di probabilità totale]\begin{equation}\label{eq:prob tot}
             \sum_{i=1}^{k}P(H_{i})=1.
         \end{equation}
-        \begin{equation}\label{eq:prob marg}
+        \item[Regola di probabilità marginale]\begin{equation}\label{eq:prob marg}
             P(E)=\sum_{i=1}^{k}P(E\cap H_{i})=\sum_{i=1}^{k}P(E|H_{i})P(H_{i}).
         \end{equation}
-Dove \ref{eq:prob tot} è detta \textbf{Regola di probabilità totale} e \ref{eq:prob marg} è detta \textbf{Regola di probabilità marginale}.
+    \end{description}
 \end{lemma}
 \begin{theorem}[Teorema di Bayes]\label{th:teorema_bayes}
     Sia $\{ H_{1},H_{2},\cdots H_{k}\}$ un partizione di $H$ e sia $E \subset H \; \mid \; P(E)\ne 0$. Il teorema afferma che:
@@ -115,4 +116,12 @@ Sostituendo la \ref{eq:congiunta} in \ref{eq:condizionata} troviamo il teorema d
     P(A|B)= \frac{P(A \cap B)}{P(B)} =\frac{P(B|A)P(A)}{P(B)}.
 \end{equation}
 \end{proof}
+\section{Indipendenza}
+\begin{definition}[Indipendenza]
+    Due eventi $F$ e $G$ sono condizionatamente indipendenti dato un evento $H$ se:
+    \begin{equation}
+        P(F\cap G|H)=P(F|H)P(G|H)
+    \end{equation}
+Come si interpreta l'indipendenza condizionata? In poche parole, se sappiamo che $H$  è vera e $F$ e $G$ sono condizionatamente indipendenti dato $H$, allora conoscere $G$ non modifica la nostra convinzione su $F$.
+\end{definition}
 \end{document}
