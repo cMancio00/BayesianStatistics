@@ -4,140 +4,56 @@
 \chapter{Concetti preliminari}
 \epigraph{Sotto il teorema di Bayes, nessuna teoria è perfetta. Piuttosto, è un lavoro in corso, sempre soggetto a ulteriori perfezionamenti e prove.}{\textit{Nate Silver}}
 \hfill \break
-La statistica bayesiana è un sottocampo della statistica in cui la verità di un enunciato è espressa in termini di credibilià (\textit{beliefe})
+La statistica bayesiana è un sottocampo della statistica in cui la verità di un enunciato è espressa in termini di credibilità (\textit{belief})
 o più specificatamente di \textbf{probabilità bayesiana}.
 \begin{definition}[Probabilità bayesiana]
-    \label{def:probabilità_bayesiana}
-    La probabilità bayesiana è un'interpretazione del concetto di probabilità, in cui, anzichè la frequenza di un qualche evento, la probabilità
+    \label{def:probabilita_bayesiana}
+    La probabilità bayesiana è un'interpretazione del concetto di probabilità, in cui, anziché la frequenza di un qualche evento, la probabilità
     viene vista come aspettativa razionale che rappresenta un stato di conoscenza o come quantificazione di una convinzione personale.
 \end{definition}
 \hfill \break
-Nella visione bayesiana assegnamo una probabilità ad un'ipotesi, che è la probabilità che l'ipotesi sia vera.
+Nella visione bayesiana assegniamo una probabilità ad un'ipotesi, che è la probabilità che l'ipotesi sia vera.
 Nell' approccio frequentista invece, l'ipotesi viene solo verificata senza che le venga assegnata una probabilità.
 Per valutare la probabilità di un'ipotesi si deve fornire una \textbf{probabilità iniziale}(\textit{probabilità a priori}).
-Questa a sua volta viene aggiornata con l'arrivo di nuovi dati, che vengono utilizzati per calcolare la \textbf{probabilità aggiornata}(\textit{probabilità a posteriori}).
-
-\section{Metodologia bayesiana}
-L'interpretazione bayesiana fornisce un insieme standard di procedure e formule per aggiornare la probabilità iniziale con l'arrivo di nuovi dati.
-Queste procedure sono chiamate \textbf{metodologia bayesiana} e sono le seguenti:
-\begin{itemize}
-    \item Uso di variabili casuali, per modellare le fonti di incertezza nei modelli statistici, compresa l'incertezza risultante dalla mancanza di informazioni.
-    \item La necessità di determinare la distribuzione di probabilità iniziale, tenendo conto delle informazioni disponibili.
-    \item Uso ricorsivo del \textbf{teorema di Bayes} per aggiornare la probabilità iniziale con l'arrivo di nuovi dati.
-    \item La probabilità che può essere assegnata ad un evento è un numero reale compreso tra 0 e 1.
-\end{itemize}
-La distribuzione finale di probabilità può a sua volta diventare una probabilità iniziale che può essere aggiornata con nuovi dati.
-\section{Funzioni belief e probabilità}
-La probabilità è un modo per esprimere numericamente un'aspettativa razionale.
-Mostriamo adesso che molte proprietà che hanno le nostre aspettative numeriche sono anche valide per le probabilità.
-\subsection{Funzione belief (belief function)}
-\begin{definition}[Funzione belief]
-    \label{def:funzione_belief}
-    La funzione belief è una funzione che associa ad ogni possibile evento o enunciato un valore reale compreso tra 0 e 1.
+Questa a sua volta viene aggiornata con l'arrivo di nuovi dati, che vengono utilizzati per calcolare la \textbf{probabilità aggiornata}(\textit{probabilità a posteriori}),
+utilizzando la \textbf{regola di Bayes}.
+\begin{definition}[Inferenza bayesiana]
+    \label{def:inferenza_bayesiana}
+    L'inferenza bayesiana è un approccio alla statistica che utilizza la regola di Bayes per aggiornare la probabilità iniziale con l'arrivo di nuovi dati.
 \end{definition}
 \hfill \break
-Siano $F$, $G$ e $H$ tre possibili enunciati che possono sovrapporsi.
-Sia $Be()$ una funzione belief che assegna un numero agli enunciati tale che maggiore è il numero assegnato, maggiore è la credibilità dell'enunciato (\textit{degree of belief}).
-Ad esempio, se $Be(F) > Be(G)$ allora $F$ è più credibile di $G$.\\
-Vogliamo che la funzione descriva le nostre credenze sotto certe condizioni:
+Più in generale, possiamo derivare dei metodi di analisi dei dati detti \textbf{metodi bayesiana}, che forniscono:
 \begin{itemize}
-    \item $Be(F|H) > Be(G|H)$ significa che dato $H$ vero, allora è più credibile $F$ che $G$.
-    \item $Be(F|G) > Be(F|H)$ significa che se siamo costretti a scommettere su $F$, lo facciamo più volentieri sotto la condizione che $G$ sia vero rispetto alla condizione che $H$ sia vero.
+    \item stima dei parametri con buone proprietà statistiche;
+    \item descrizione parsimoniosa dei dati osservati;
+    \item previsione di dati mancanti e di dati futuri;
+    \item una struttura computazionale (\textit{computational framework}) per la stima, selezione e validazione per i modelli.
 \end{itemize}
-
-\subsection{Assiomi di credibilità}\label{sub:assiomi_credibilita}
-Ogni funzione che rappresenta le nostre credenze deve avere le seguenti proprietà:
-\begin{equation}
-    \label{eq:B1}
-    Be(\lnot H|H) \leq Be(F|H) \leq Be(H|H)
-\end{equation}
-\begin{equation}
-    \label{eq:B2}
-    Be(F\cup G|H) \geq \max \{ Be(F|H),Be(G|H)\} 
-\end{equation}
-\begin{equation}
-    \label{eq:B3}
-    Be(F \cap G|H) \;\textit{può essere derivata da}\;  Be(G|H) \;\textit{e}\; Be(F|G \cap H)
-\end{equation}
-\hfill \break
-Addesso vediamo cosa significano le proprietà sopra elencate.
+\section{Apprendimento bayesiano}
+L'induzione statistica è un processo che consente di apprendere le caratteristiche generali di una popolazione a partire da un sottoinsieme di essa, ossia da un campione.
+I valori numerici delle caratteristiche di una popolazione sono espressi in termini di parametri $\theta$, e le descrizioni numeriche del sottoinsieme forma il dataset $y$.
+Prima che venga ottenuto il dataset, i valori numerici sia delle caratteristiche della popolazione che del dataset sono incerti. Dopo che un dataset $y$ è stato ottenuto,
+L'informazione contenuta nel dataset può essere utilizzata per ridurre la nostra incertezza sulle caratteristiche della popolazione, cioè su $\theta$.
+Quantificare questo cambiamento di incertezza è il compito dell'inferenza bayesiana.
+I nostri spazi sono:
 \begin{itemize}
-    \item \textbf{Proprietà \ref{eq:B1}}: Il numero che assegno a $Be(F|H)$ è compreso tra i numeri che assegnamo all'assenza di credenza e alla piena credenza.
-    \item \textbf{Proprietà \ref{eq:B2}}: La credibilità di $F$ o $G$ dato $H$ è almeno uguale alla credibilità di $F$ o $G$.
-    \item \textbf{Proprietà \ref{eq:B3}}: Possiamo decidere se $F$ e $G$ sono entrambi credibili dato $H$, prima decidendo se $G$ è credibile dato $H$ e successivamente decidendo se $F$ è credibile dato $G$ e $H$.
+    \item $\mathcal{Y}$: spazio del campione;
+    \item $\Theta$: spazio dei parametri;
 \end{itemize}
+Lo spazio del campione è l'insieme di tutti i possibili dataset a cui appartiene un singolo dataset $y$.
+Lo spazio dei parametri è l'insieme di tutti i possibili valori dei parametri $\theta$, da cui speriamo di identificare il valore che meglio descrive la popolazione.
 \hfill \break
-Possiamo confrontare gli assiomi di credibilità con gli assiomi di probabilità:
-\begin{equation}
-    \label{eq:P1}
-    0=P(\lnot H|H) \leq P(F|H) \leq P(H|H)=1
-\end{equation}
-\begin{equation}
-    \label{eq:P2}
-    P(F\cup G|H) = P(F|H)+P(G|H) \;\textit{se}\; F \cap G = \emptyset
-\end{equation}
-\begin{equation}
-    \label{eq:P3}
-    P(F \cap G|H) = P(G|H)P(F|G \cap H)
-\end{equation}
-\hfill \break
-Notiamo che una funzione che soddisfa gli assiomi di credibilità soddisfa anche gli assiomi di probabilità. Quindi se usiamo una funzione di probabilità per descrivere le nostre credenze, allora la funzione soddisfa gli assiomi di credibilità.
-\section{Partizioni e regola di Bayes}
-\begin{definition}[Partizione di un insieme]
-    Una partizione dell'insieme $H$ è una famiglia di sottoinsiemi $\{ H_{1},H_{2},\cdots H_{k}\}$ che soddisfa le seguenti proprietà:
-    \begin{enumerate}
-        \item \begin{equation}
-            \label{eq:disgiunta}
-             H_{i}\cap H_{j}=\emptyset \; \forall  i\neq j
-        \end{equation}
-        \item \begin{equation}
-            \label{eq:completa}
-            \bigcup_{i=1}^{k}H_{i}=H
-        \end{equation}
-    \end{enumerate}
-\end{definition}
-\hfill \break
-La famiglia $\{ H_{1},H_{2},\cdots H_{k}\}$ è detta \textbf{disgiunta} se vale la proprietà \ref{eq:disgiunta}, mentre è detta \textbf{completa} se vale la proprietà \ref{eq:completa}.
-Possiamo dire che $\{ H_{1},H_{2},\cdots H_{k}\}$ è una \textbf{partizione di H} se è disgiunta e completa.
-\hfill \break
-Prima di introdurre la regola di Bayes, vediamo due proprietà che derivano direttamente dagli assiomi di credibilità visti nella sezione \ref*{sub:assiomi_credibilita}.
-\break
-\begin{lemma}
-    \label{lem:prob marg}
-    Sia $\{ H_{1},H_{2},\cdots H_{k}\}$ un partizione di $H$, $P(H)=1$ e sia $E$ un evento specifico. Allora gli assiomi di probabilità ci dicono che:
-        \begin{equation}\label{eq:prob tot}
-            \sum_{i=1}^{k}P(H_{i})=1.
-        \end{equation}
-        \begin{equation}\label{eq:prob marg}
-            P(E)=\sum_{i=1}^{k}P(E\cap H_{i})=\sum_{i=1}^{k}P(E|H_{i})P(H_{i}).
-        \end{equation}
-Dove \ref{eq:prob tot} è detta \textbf{Regola di probabilità totale} e \ref{eq:prob marg} è detta \textbf{Regola di probabilità marginale}.
-\end{lemma}
-\begin{theorem}[Teorema di Bayes]\label{th:teorema_bayes}
-    Sia $\{ H_{1},H_{2},\cdots H_{k}\}$ un partizione di $H$ e sia $E \subset H \; \mid \; P(E)\ne 0$. Il teorema afferma che:
-\begin{equation}\label{eq:regola_bayes}
-    P(H_{j}|E)=\frac{P(E|H_{j})P(H_{j})}{P(E)}\stackrel{\ref{eq:prob marg}}{=}\frac{P(E|H_{j})P(H_{j})}{\sum_{i=1}^{k}P(E|H_{i})P(H_{i})}.
-\end{equation}
-\end{theorem}
-\hfill \break
-L'evento $E$ implica che si è avverata almeno un'alternativa e quindi $P(E)\ne 0$. Cosa importante, altrimenti il teorema non avrebbe senso, perchè non possiamo dividere per zero.
-\begin{proof}
-Il teorema deriva dalla definizione di probabilità condizionata e dalla regola di probabilità totale.
-La probabilità di un evento $A$ dato un evento $B$ è definita come:
-\begin{equation}\label{eq:condizionata}
-    P(A|B)=\frac{P(A\cap B)}{P(B)}.
-\end{equation}
-Analogamente, la probabilità di un evento $B$ dato un evento $A$ è definita come:
-\begin{equation}
-    P(B|A)=\frac{P(A\cap B)}{P(A)}.
-\end{equation}
-Usando la regola di probabilità marginale \ref{eq:prob marg} possiamo scrivere la probabilità congiunta come:
-\begin{equation}\label{eq:congiunta}
-    P(A \cap B )= P(B|A)P(A).
-\end{equation}
-Sostituendo la \ref{eq:congiunta} in \ref{eq:condizionata} troviamo il terorema di bayes:
-\begin{equation}
-    P(A|B)= \frac{P(A \cap B)}{P(B)} =\frac{P(B|A)P(A)}{P(B)}.
-\end{equation}
-\end{proof}
+L'apprendimento bayesiano inizia con una formulazione numerica della probabilità congiunta di $y$ e $\theta$, espressi in termini di distribuzione di probabilità su $\mathcal{Y}$
+e $\Theta$.
+In soldoni, la probabilità congiunta è la probabilità che $y$ e $\theta$ si verifichino contemporaneamente.
+A questo punto inizia il processo ricorsivo:
+\begin{enumerate}
+    \item Per ogni valore numerico $\theta \in \Theta$, la nostra \textbf{distribuzione iniziale} $p(\theta)$ descrive la nostra convinzione iniziale che $\theta$ rappresenti le vere caratteristiche della popolazione.
+    \item Per ogni $\theta \in \Theta$ e $y \in \mathcal{Y}$, il nostro \textbf{modello campionario} $p(y|\theta)$ descrive la nostra convinzione che $y$ sia il risultato del nostro studio sapendo che $\theta$ è vero.
+    \item Per ogni valore numerico $\theta \in \Theta$, la nostra \textbf{distribuzione a posteriori} $p(\theta|y)$ descrive la nostra convinzione che $\theta$ rappresenti le vere caratteristiche della popolazione sapendo avendo osservato $y$.
+\end{enumerate}
+La distribuzione a posteriore è ottenuta dalla distribuzione iniziale e dal modello campionario, tramite la \textbf{regola di Bayes} (che vedremo successivamente).
+\begin{remark}
+    È importante notare che la regola di Bayes non indica come dovrebbero essere le nostre convinzioni, ma come dovrebbero cambiare con l'arrivo di nuove informazioni.
+\end{remark}
 \end{document}

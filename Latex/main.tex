@@ -6,7 +6,7 @@
 \date{\today}
 \usepackage{epigraph}
 \usepackage[italian]{babel}
-\usepackage{draculatheme}
+%\usepackage{draculatheme}
 \usepackage{comment}
 \usepackage{amsthm}
 \usepackage{amssymb}
@@ -16,12 +16,13 @@
 
 
 \theoremstyle{definition}
-\newtheorem{definition}{Definizione}[section]
-\newtheorem{theorem}{Teorema}[section]
+\newtheorem{definition}{Definizione}[chapter]
+\newtheorem{theorem}{Teorema}[chapter]
 \newtheorem{lemma}[theorem]{Lemma}
-
 \theoremstyle{remark}
-\newtheorem*{remark}{Remark}
+\newtheorem*{remark}{Nota}
+
+
 \begin{document}
 \maketitle
 \tableofcontents
@@ -29,5 +30,6 @@
 \mainmatter
 
 \subfile{Capitoli/introduzione.tex}
+\subfile{Capitoli/belief.tex}
 
 \end{document}
